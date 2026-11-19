@@ -49,7 +49,7 @@ function Welcome() {
           <div className="photo-glow"></div>
 
           <img
-            src="/images/sufiyan.jpg"
+            src={`${import.meta.env.BASE_URL}images/sufiyan.jpg`}
             alt="Sufiyan"
             className="profile-photo"
           />

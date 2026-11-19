@@ -7,29 +7,29 @@ import "./BalloonSurprise.css";
 
 const surprises = [
   {
-    image: "/images/balloon1.jpg",
+    image: `${import.meta.env.BASE_URL}images/balloon1.jpg`,
     caption: "My Favourite Human ❤️",
     message: "You have this beautiful way of making everyone around you feel special, but for me, you're the person who makes my world brighter just by being in it"
   },
   {
-    image: "/images/balloon2.jpg",
-    caption: "Your Hardworking Heart ✨ ",
-    message: "Your I admire how hard you work for your dreams and for the future we're building together. Your dedication makes me proud of you every single day."
+    image: `${import.meta.env.BASE_URL}images/balloon2.jpg`,
+    caption: "Your Hardworking Heart ✨",
+    message: "I admire how hard you work for your dreams and for the future we're building together. Your dedication makes me proud of you every single day."
   },
   {
-    image: "/images/balloon3.jpg",
-    caption: "My biggest blessing ",
+    image: `${import.meta.env.BASE_URL}images/balloon3.jpg`,
+    caption: "My biggest blessing",
     message: "Having you in my life is a blessing I thank Allah for every day. May He always protect you, guide your steps, fulfil your dreams, and fill your life with endless happiness. May you always be blessed beyond what your heart wishes for. Ameen."
   },
   {
-    image: "/images/balloon4.jpg",
+    image: `${import.meta.env.BASE_URL}images/balloon4.jpg`,
     caption: "My Biggest Pride 💙",
-    message:  "I wish you could see yourself through my eyes. You'd see how special, capable, and wonderful you are. I'm so proud of the man you are and the man you're becoming. I'll always believe in you."
+    message: "I wish you could see yourself through my eyes. You'd see how special, capable, and wonderful you are. I'm so proud of the man you are and the man you're becoming. I'll always believe in you."
   },
   {
-    image: "/images/balloon5.jpg",
-    caption: "Always and forever💍",
-    message: " I don't just love who you are today; I love the person you're becoming. I want to stand beside you through every dream, every challenge, and every chapter of our forever."
+    image: `${import.meta.env.BASE_URL}images/balloon5.jpg`,
+    caption: "Always and forever 💍",
+    message: "I don't just love who you are today; I love the person you're becoming. I want to stand beside you through every dream, every challenge, and every chapter of our forever."
   }
 ];
 

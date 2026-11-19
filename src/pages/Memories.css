@@ -1,0 +1,237 @@
+
+.memories-page {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 65px 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 10%, #fff 0%, transparent 30%),
+    radial-gradient(circle at 90% 90%, #d3e9fa, transparent 35%),
+    linear-gradient(135deg, #eaf6ff, #c8e2f5, #f2f9ff);
+  font-family: "DM Sans", sans-serif;
+}
+
+.memories-container {
+  width: 100%;
+  max-width: 1050px;
+  padding: 45px 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 25px 70px rgba(91, 143, 180, 0.14);
+  z-index: 2;
+}
+
+.memories-label {
+  color: #719dbb;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.memories-container h1 {
+  margin: 16px 0;
+  color: #355c7d;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 6vw, 55px);
+  font-weight: 500;
+}
+
+.memories-container h1 span {
+  color: #78a9d0;
+  font-style: italic;
+}
+
+.memories-intro {
+  color: #66829b;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.memories-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 35px 25px;
+  margin: 55px auto 40px;
+}
+
+.memory-card {
+  position: relative;
+  width: 100%;
+  max-width: 245px;
+  padding: 12px 12px 23px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(68, 111, 145, 0.18);
+  transition: box-shadow 0.3s ease;
+  transform-origin: center;
+}
+
+.memory-card:hover {
+  box-shadow: 0 20px 40px rgba(68, 111, 145, 0.25);
+}
+
+.memory-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #e2eff8;
+}
+
+.memory-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-card h3 {
+  margin-top: 15px;
+  color: #527796;
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.memory-card p {
+  margin-top: 7px;
+  color: #91a8ba;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.memory-heart {
+  position: absolute;
+  right: 12px;
+  bottom: 7px;
+}
+
+.memory-card-1 {
+  transform: rotate(-3deg);
+}
+
+.memory-card-2 {
+  transform: rotate(3deg);
+}
+
+.memory-card-3 {
+  transform: rotate(-2deg);
+}
+
+.memory-card-4 {
+  transform: rotate(2deg);
+}
+
+.memory-card-5 {
+  transform: rotate(-3deg);
+}
+
+.memories-ending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 35px 0 20px;
+  color: #6487a3;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.memories-next-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 15px 32px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #85b8df, #609bc9);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(96, 155, 201, 0.25);
+}
+
+.memories-back-button {
+  display: block;
+  margin: 20px auto 0;
+  border: none;
+  background: transparent;
+  color: #789bb6;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.memories-decoration {
+  position: absolute;
+  color: rgba(105, 161, 202, 0.3);
+  font-size: 55px;
+  animation: memoriesFloat 6s ease-in-out infinite;
+}
+
+.memories-heart-one {
+  top: 8%;
+  left: 7%;
+}
+
+.memories-heart-two {
+  top: 15%;
+  right: 8%;
+  animation-delay: 2s;
+}
+
+.memories-heart-three {
+  bottom: 8%;
+  right: 7%;
+  animation-delay: 3s;
+}
+
+@keyframes memoriesFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@media (max-width: 750px) {
+  .memories-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 15px;
+  }
+
+  .memory-card {
+    max-width: 230px;
+  }
+}
+
+@media (max-width: 480px) {
+  .memories-container {
+    padding: 35px 15px;
+  }
+
+  .memories-gallery {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .memory-card {
+    max-width: 260px;
+  }
+
+  .memories-ending {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+}

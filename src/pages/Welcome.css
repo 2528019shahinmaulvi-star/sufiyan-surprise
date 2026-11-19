@@ -1,0 +1,341 @@
+
+.welcome-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 35px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #e5efff 0%,
+    #cbdcff 48%,
+    #e2eaff 100%
+  );
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Main Card */
+.welcome-card {
+  width: 100%;
+  max-width: 590px;
+  min-height: 780px;
+  padding: 55px 35px 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 25px 70px rgba(75, 112, 170, 0.16),
+    inset 0 1px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Heading */
+.welcome-heading {
+  margin: 0 0 12px;
+  color: #203b68;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(30px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.welcome-heading span {
+  color: #477bb5;
+}
+
+.heading-sparkle {
+  display: inline-block;
+  margin-left: 5px;
+  color: #6b9ed3;
+  vertical-align: middle;
+}
+
+.welcome-subheading {
+  margin: 0 0 42px;
+  color: #61799c;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+}
+
+/* Profile Photo */
+.profile-section {
+  width: 245px;
+  height: 245px;
+  margin-bottom: 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-glow {
+  position: absolute;
+  width: 245px;
+  height: 245px;
+  border-radius: 50%;
+  background: #a9cdf2;
+  filter: blur(28px);
+  opacity: 0.55;
+}
+
+.profile-photo {
+  position: relative;
+  z-index: 2;
+  width: 215px;
+  height: 215px;
+  object-fit: cover;
+  object-position: center;
+  border: 7px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 12px 35px rgba(45, 88, 140, 0.2);
+}
+
+/* Diamond Decoration */
+.diamond-decoration {
+  position: absolute;
+  z-index: 5;
+  right: -5px;
+  bottom: 5px;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #d9efff,
+    #8fc5ef
+  );
+  color: #397db5;
+  box-shadow:
+    0 5px 20px rgba(69, 139, 194, 0.3),
+    inset 0 2px 8px white;
+}
+
+.diamond-sparkle {
+  position: absolute;
+  top: -8px;
+  right: -5px;
+  color: #ffffff;
+  fill: #ffffff;
+  filter: drop-shadow(0 0 5px #6baee8);
+}
+
+/* Best Man Badge */
+.best-man-badge {
+  margin: 0 auto 35px;
+  padding: 15px 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #202c47;
+  font-size: 23px;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(66, 92, 144, 0.12);
+}
+
+.best-man-badge span {
+  font-size: 23px;
+}
+
+/* Description */
+.welcome-description {
+  max-width: 390px;
+  margin: 27px 0 30px;
+  color: #637795;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.description-heart {
+  color: #d77caa;
+  font-size: 19px;
+}
+
+/* Start Button */
+.welcome-start-button {
+  min-width: 205px;
+  padding: 16px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #294b7c, #477db8);
+  color: #ffffff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(46, 85, 135, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+.welcome-start-button:hover {
+  box-shadow: 0 14px 30px rgba(46, 85, 135, 0.35);
+}
+
+/* Footer */
+.welcome-footer {
+  margin: 30px 0 0;
+  color: #8294af;
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Floating Decorations */
+.welcome-decoration {
+  position: absolute;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  animation: welcomeFloat 5s ease-in-out infinite;
+}
+
+.star-one {
+  top: 12%;
+  left: 13%;
+  font-size: 35px;
+}
+
+.star-two {
+  top: 22%;
+  right: 13%;
+  font-size: 45px;
+  animation-delay: 1s;
+}
+
+.star-three {
+  bottom: 17%;
+  left: 12%;
+  font-size: 28px;
+  animation-delay: 2s;
+}
+
+.star-four {
+  top: 50%;
+  right: 7%;
+  font-size: 36px;
+  animation-delay: 1.5s;
+}
+
+.star-five {
+  bottom: 12%;
+  right: 20%;
+  font-size: 40px;
+  animation-delay: 0.5s;
+}
+
+.star-six {
+  top: 10%;
+  right: 35%;
+  font-size: 22px;
+  animation-delay: 2.5s;
+}
+
+@keyframes welcomeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(12deg);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .welcome-page {
+    min-height: 100svh;
+    padding: 20px 15px;
+  }
+
+  .welcome-card {
+    min-height: auto;
+    padding: 45px 22px 35px;
+    border-radius: 28px;
+  }
+
+  .welcome-heading {
+    font-size: 31px;
+  }
+
+  .welcome-subheading {
+    margin-bottom: 35px;
+    font-size: 12px;
+  }
+
+  .profile-section {
+    width: 215px;
+    height: 215px;
+    margin-bottom: 30px;
+  }
+
+  .photo-glow {
+    width: 215px;
+    height: 215px;
+  }
+
+  .profile-photo {
+    width: 190px;
+    height: 190px;
+  }
+
+  .diamond-decoration {
+    width: 65px;
+    height: 65px;
+    right: -3px;
+  }
+
+  .diamond-decoration svg:first-child {
+    width: 36px;
+    height: 36px;
+  }
+
+  .welcome-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .welcome-footer {
+    font-size: 12px;
+  }
+
+  .star-one {
+    left: 4%;
+  }
+
+  .star-two {
+    right: 4%;
+  }
+
+  .star-three {
+    left: 4%;
+  }
+
+  .star-four {
+    right: 3%;
+  }
+}

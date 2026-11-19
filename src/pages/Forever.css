@@ -1,0 +1,265 @@
+
+.forever-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #dceeff;
+}
+
+/* Blurred full-screen background photo */
+.forever-page::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  z-index: 0;
+  background-image: url("/images/forever-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(7px);
+  transform: scale(1.04);
+}
+
+/* Soft pastel blue overlay */
+.forever-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(211, 233, 250, 0.38);
+}
+
+/* Main glass card */
+.forever-container {
+  width: 100%;
+  max-width: 760px;
+  padding: 65px 55px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 25px 70px rgba(92, 143, 184, 0.2);
+}
+
+/* Heart icon */
+.forever-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #edf7ff;
+  box-shadow: 0 8px 25px rgba(107, 159, 200, 0.15);
+}
+
+/* Small heading */
+.forever-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #7099bb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+/* Main heading */
+.forever-container h1 {
+  color: #405c78;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(42px, 7vw, 65px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.forever-container h1 span {
+  display: block;
+  color: #83afd2;
+  font-style: italic;
+}
+
+/* Divider */
+.forever-divider {
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #8bbce0;
+}
+
+.forever-divider span {
+  width: 65px;
+  height: 1px;
+  background: #b5d3eb;
+}
+
+/* Message paragraphs */
+.forever-message {
+  max-width: 520px;
+  margin: 0 auto 18px;
+  color: #71869a;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Highlight message */
+.forever-highlight {
+  margin-top: 28px;
+  color: #547c9f;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-style: italic;
+}
+
+/* Infinity animation */
+.forever-infinity {
+  margin: 15px 0;
+  color: #8bbce0;
+  font-family: "Playfair Display", serif;
+  font-size: 65px;
+  line-height: 1.2;
+}
+
+/* Bottom message */
+.forever-bottom {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #83a9c8;
+  font-size: 13px;
+}
+
+/* Signature */
+.forever-signature {
+  margin-top: 25px;
+  color: #91a7ba;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Replay button */
+.forever-replay-button {
+  margin-top: 32px;
+  padding: 15px 27px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #8bbce0, #6e9fc5);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(107, 159, 200, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+.forever-replay-button:hover {
+  box-shadow: 0 14px 30px rgba(107, 159, 200, 0.35);
+}
+
+/* Floating decorations */
+.forever-heart {
+  position: absolute;
+  z-index: 2;
+  color: rgba(75, 133, 179, 0.75);
+  font-size: 35px;
+  animation: foreverFloat 6s ease-in-out infinite;
+}
+
+.heart-one {
+  top: 12%;
+  left: 12%;
+}
+
+.heart-two {
+  top: 20%;
+  right: 13%;
+  animation-delay: 1s;
+}
+
+.heart-three {
+  bottom: 17%;
+  left: 18%;
+  animation-delay: 2s;
+}
+
+.heart-four {
+  bottom: 12%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+.heart-five {
+  top: 50%;
+  right: 5%;
+  animation-delay: 3s;
+}
+
+/* Floating animation */
+@keyframes foreverFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-22px) rotate(12deg);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .forever-page {
+    padding: 25px 14px;
+  }
+
+  .forever-page::before {
+    background-position: center center;
+  }
+
+  .forever-container {
+    padding: 45px 22px;
+    border-radius: 24px;
+  }
+
+  .forever-icon {
+    width: 75px;
+    height: 75px;
+  }
+
+  .forever-container h1 {
+    font-size: 43px;
+  }
+
+  .forever-message {
+    font-size: 14px;
+  }
+
+  .forever-highlight {
+    font-size: 19px;
+  }
+
+  .forever-bottom {
+    gap: 7px;
+    font-size: 11px;
+  }
+
+  .forever-heart {
+    font-size: 25px;
+  }
+}

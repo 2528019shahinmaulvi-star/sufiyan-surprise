@@ -1,0 +1,639 @@
+
+.app {
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #eaf6ff, #d9efff, #edf8ff);
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 1100px);
+  padding: 15px 25px;
+  border: 1px solid rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.68);
+  backdrop-filter: blur(18px);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 8px 30px rgba(80,140,180,0.08);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #5296c0;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #64869d;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #3489bd;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  padding: 145px 20px 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 20%, #ffffff 0%, transparent 35%),
+    radial-gradient(ellipse at 85% 75%, #c1e4f9 0%, transparent 40%),
+    linear-gradient(135deg, #e9f7ff, #cce9fa, #edf8ff);
+}
+
+.hero-content {
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #5698bd;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.9);
+  padding: 9px 17px;
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.hero-photo {
+  width: 135px;
+  height: 135px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  border: 5px solid white;
+  background: linear-gradient(135deg, #b7e0f7, #e8f7ff);
+  box-shadow: 0 12px 35px rgba(66,137,180,0.2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.photo-heart {
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  color: #75b9df;
+  background: white;
+  padding: 7px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  color: #477fa3;
+  font-size: clamp(35px, 6vw, 58px);
+  line-height: 1.3;
+}
+
+.hero h1 span {
+  color: #78afd0;
+}
+
+.hero h2 {
+  font-family: 'Dancing Script', cursive;
+  color: #559ac5;
+  font-size: 42px;
+  margin: 8px 0 15px;
+}
+
+.hero-content > p {
+  color: #698ba2;
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 470px;
+  margin: 0 auto 30px;
+}
+
+.primary-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  background: linear-gradient(135deg, #81c1e7, #529ecb);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(74,151,198,0.25);
+}
+
+.hero-bottom {
+  color: #82a9c0;
+  margin-top: 35px;
+  font-size: 12px;
+}
+
+.cloud {
+  position: absolute;
+  color: rgba(255,255,255,0.75);
+  font-size: 130px;
+  animation: cloudFloat 8s ease-in-out infinite;
+}
+
+.cloud-one {
+  top: 15%;
+  left: 5%;
+}
+
+.cloud-two {
+  bottom: 10%;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+.floating-heart {
+  position: absolute;
+  color: #80bce0;
+  font-size: 35px;
+  animation: heartFloat 5s ease-in-out infinite;
+}
+
+.heart-one {
+  top: 30%;
+  left: 18%;
+}
+
+.heart-two {
+  bottom: 25%;
+  right: 18%;
+  animation-delay: 1s;
+}
+
+.heart-three {
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+/* COMMON SECTIONS */
+
+.section {
+  padding: 110px 7%;
+  text-align: center;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin: 0 auto 55px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 43px);
+  color: #477fa3;
+  margin-bottom: 15px;
+}
+
+.section-heading p {
+  font-size: 14px;
+  color: #7897aa;
+  line-height: 1.8;
+}
+
+/* BALLOONS */
+
+.surprise-section {
+  background: rgba(255,255,255,0.35);
+}
+
+.balloon-container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 950px;
+  margin: 0 auto 35px;
+  align-items: center;
+}
+
+.balloon-item {
+  min-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balloon {
+  position: relative;
+  width: 105px;
+  height: 130px;
+  border: none;
+  border-radius: 50% 50% 45% 45%;
+  font-size: 36px;
+  color: white;
+  box-shadow: inset -12px -10px 18px rgba(50,100,140,0.12),
+              0 12px 25px rgba(70,140,180,0.12);
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 48px;
+  background: #9bbfd5;
+  top: 128px;
+  left: 50%;
+}
+
+.balloon-1 {
+  background: #8ec9ec;
+}
+
+.balloon-2 {
+  background: #b1d9f0;
+}
+
+.balloon-3 {
+  background: #76b5df;
+}
+
+.balloon-4 {
+  background: #a6d2ed;
+}
+
+.balloon-5 {
+  background: #c0e3f7;
+}
+
+.balloon-message {
+  width: 150px;
+  min-height: 140px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #5598c1;
+  box-shadow: 0 8px 25px rgba(80,140,180,0.1);
+}
+
+.balloon-message p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #6298b8;
+  font-size: 13px;
+}
+
+.complete-message {
+  margin-top: 25px;
+  color: #4d91bb;
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+}
+
+/* MEMORIES */
+
+.memories-section {
+  background: linear-gradient(180deg, #e9f6ff, #d9edfc);
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.memory-card {
+  background: white;
+  padding: 12px 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(65,126,165,0.12);
+  transform: rotate(-2deg);
+  transition: box-shadow 0.3s;
+}
+
+.memory-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.memory-card:hover {
+  box-shadow: 0 20px 40px rgba(65,126,165,0.2);
+}
+
+.memory-image {
+  height: 230px;
+  background: linear-gradient(135deg, #c8e8fa, #eff9ff);
+  position: relative;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.memory-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-heart {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #79b8dd;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+.memory-card > p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  color: #5689aa;
+  margin-top: 16px;
+}
+
+/* LOVE LETTER */
+
+.letter-section {
+  background:
+    radial-gradient(circle at 10% 10%, white, transparent 30%),
+    linear-gradient(135deg, #eaf7ff, #d4edfc);
+}
+
+.letter-open-btn {
+  border: none;
+  border-radius: 50px;
+  padding: 18px 35px;
+  background: linear-gradient(135deg, #83c1e6, #519bc9);
+  color: white;
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(75,145,190,0.2);
+}
+
+/* LETTER POPUP */
+
+.letter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(51,89,115,0.5);
+  backdrop-filter: blur(9px);
+  z-index: 200;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.love-letter-card {
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fbfdff;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 45px;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(35,85,120,0.2);
+}
+
+.close-letter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: #e7f4fd;
+  color: #5898bd;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.letter-icon {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.love-letter-card h2 {
+  font-family: 'Dancing Script', cursive;
+  color: #4d8fb7;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.letter-body p {
+  font-size: 14px;
+  line-height: 2;
+  color: #668397;
+  margin-bottom: 18px;
+}
+
+.letter-body .letter-highlight {
+  text-align: center;
+  font-weight: 700;
+  color: #4289b5;
+  margin-top: 28px;
+}
+
+.letter-signature {
+  font-size: 13px;
+  color: #7798ad;
+  text-align: right;
+  line-height: 1.8;
+  margin-top: 30px;
+}
+
+.letter-signature span {
+  display: block;
+  font-family: 'Dancing Script', cursive;
+  color: #4d91ba;
+  font-size: 30px;
+}
+
+.letter-bottom-heart {
+  display: block;
+  margin: 25px auto 0;
+  color: #83bfe0;
+}
+
+/* FOOTER */
+
+.footer {
+  background: #cce7f8;
+  padding: 35px 15px;
+  text-align: center;
+  color: #5886a5;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.footer p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 22px;
+}
+
+/* ANIMATIONS */
+
+@keyframes cloudFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes heartFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+  .memory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+
+  .balloon-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    width: 94%;
+    padding: 13px 16px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    min-height: 95vh;
+  }
+
+  .hero h1 {
+    font-size: 37px;
+  }
+
+  .section {
+    padding: 80px 18px;
+  }
+
+  .balloon-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .balloon-item {
+    min-height: 160px;
+  }
+
+  .balloon {
+    width: 85px;
+    height: 110px;
+  }
+
+  .balloon::after {
+    top: 108px;
+  }
+
+  .balloon-message {
+    width: 135px;
+    min-height: 130px;
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .memory-image {
+    height: 170px;
+  }
+
+  .memory-card {
+    padding: 8px 8px 14px;
+  }
+
+  .memory-card > p {
+    font-size: 16px;
+  }
+
+  .love-letter-card {
+    padding: 35px 22px;
+  }
+
+  .love-letter-card h2 {
+    font-size: 29px;
+  }
+
+  .letter-body p {
+    font-size: 13px;
+  }
+
+  .cloud {
+    font-size: 75px;
+  }
+}

@@ -1,33 +1,34 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Heart, ArrowRight, Sparkles } from "lucide-react";
+import { getPhotoUrl } from "../lib/photos";
 import "./BalloonSurprise.css";
 
 const surprises = [
   {
-    image: `${import.meta.env.BASE_URL}images/balloon1.jpg`,
+    image: "balloon1.jpg",
     caption: "My Favourite Human ❤️",
     message: "You have this beautiful way of making everyone around you feel special, but for me, you're the person who makes my world brighter just by being in it"
   },
   {
-    image: `${import.meta.env.BASE_URL}images/balloon2.jpg`,
+    image: "balloon2.jpg",
     caption: "Your Hardworking Heart ✨",
     message: "I admire how hard you work for your dreams and for the future we're building together. Your dedication makes me proud of you every single day."
   },
   {
-    image: `${import.meta.env.BASE_URL}images/balloon3.jpg`,
+    image: "balloon3.jpg",
     caption: "My biggest blessing",
     message: "Having you in my life is a blessing I thank Allah for every day. May He always protect you, guide your steps, fulfil your dreams, and fill your life with endless happiness. May you always be blessed beyond what your heart wishes for. Ameen."
   },
   {
-    image: `${import.meta.env.BASE_URL}images/balloon4.jpg`,
+    image: "balloon4.jpg",
     caption: "My Biggest Pride 💙",
     message: "I wish you could see yourself through my eyes. You'd see how special, capable, and wonderful you are. I'm so proud of the man you are and the man you're becoming. I'll always believe in you."
   },
   {
-    image: `${import.meta.env.BASE_URL}images/balloon5.jpg`,
+    image: "balloon5.jpg",
     caption: "Always and forever 💍",
     message: "I don't just love who you are today; I love the person you're becoming. I want to stand beside you through every dream, every challenge, and every chapter of our forever."
   }
@@ -36,6 +37,30 @@ const surprises = [
 function BalloonSurprise() {
   const navigate = useNavigate();
   const [popped, setPopped] = useState([]);
+  const [photoUrls, setPhotoUrls] = useState({});
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadPhotos = async () => {
+      const results = await Promise.all(
+        surprises.map(async (surprise) => {
+          const url = await getPhotoUrl(surprise.image);
+          return [surprise.image, url];
+        })
+      );
+
+      if (!cancelled) {
+        setPhotoUrls(Object.fromEntries(results));
+      }
+    };
+
+    loadPhotos();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const popBalloon = (index) => {
     setPopped((previous) =>
@@ -130,13 +155,12 @@ function BalloonSurprise() {
                       transition={{ duration: 0.65 }}
                     >
                       <div className="surprise-photo">
-                        <img
-                          src={surprise.image}
-                          alt={surprise.caption}
-                          onError={(event) => {
-                            event.currentTarget.style.display = "none";
-                          }}
-                        />
+                        {photoUrls[surprise.image] && (
+                          <img
+                            src={photoUrls[surprise.image]}
+                            alt={surprise.caption}
+                          />
+                        )}
 
                         <Heart
                           className="photo-heart"

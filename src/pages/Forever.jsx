@@ -1,14 +1,42 @@
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Heart, Sparkles, RotateCcw } from "lucide-react";
+import { getPhotoUrl } from "../lib/photos";
 import "./Forever.css";
 
 function Forever() {
   const navigate = useNavigate();
+  const [backgroundUrl, setBackgroundUrl] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadBackground = async () => {
+      const url = await getPhotoUrl("forever-bg.png");
+
+      if (!cancelled && url) {
+        setBackgroundUrl(url);
+      }
+    };
+
+    loadBackground();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
-    <main className="forever-page">
+    <main
+      className="forever-page"
+      style={{
+        "--forever-background": backgroundUrl
+          ? `url("${backgroundUrl}")`
+          : "none"
+      }}
+    >
       <div className="forever-heart heart-one">♡</div>
       <div className="forever-heart heart-two">♡</div>
       <div className="forever-heart heart-three">✧</div>

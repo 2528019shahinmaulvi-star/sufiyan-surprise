@@ -1,32 +1,34 @@
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { getPhotoUrl } from "../lib/photos";
 import "./Memories.css";
 
 const memories = [
   {
-    image: `${import.meta.env.BASE_URL}images/memory1.jpg`,
+    image: "memory1.jpg",
     caption: "The Birthday That Became More Special Because of You 😚",
     note: "My first birthday after you came into my life, and I never knew someone could make an ordinary day feel so magical. Having you by my side made me feel loved in a way I can't put into words. If I could relive that day, I would choose that moment with you a thousand times over 🥹💗"
   },
   {
-    image: `${import.meta.env.BASE_URL}images/memory2.jpg`,
+    image: "memory2.jpg",
     caption: "The Day We Made Our Forever Official 💍❤️",
     note: "A day filled with love, happiness, and dreams coming true. Our engagement wasn't just a grand celebration; it was the beginning of a beautiful forever with you. Among all the lights, smiles, and celebrations, my favourite part was knowing that I get to spend my life with you. My heart will always remember this magical day 💙"
   },
   {
-    image: `${import.meta.env.BASE_URL}images/memory3.jpg`,
+    image: "memory3.jpg",
     caption: "Our Little Dinner Date, My Favourite Evening",
     note: "A beautiful evening, a lovely dinner, and my favourite person by my side. It was never about the place or the food; it was about making another precious memory with you. Here's to a lifetime of dinner dates together. Whatever life brings, let's face it together 💋"
   },
   {
-    image: `${import.meta.env.BASE_URL}images/memory4.jpg`,
+    image: "memory4.jpg",
     caption: "My Favourite Smile 😊",
     note: "Your smile has a special place in my heart. No matter how my day is going, seeing you smile makes everything feel better. I hope I get to be the reason behind that beautiful smile for the rest of our lives."
   },
   {
-    image: `${import.meta.env.BASE_URL}images/memory5.jpg`,
+    image: "memory5.jpg",
     caption: "The Surprise That Made My Day Unforgettable 🎓❤️",
     note: "Among all the happiness of that day, the most beautiful moment was seeing you there. I never expected that surprise, and honestly, no graduation gift could have meant more to me than your presence. You made my achievement feel even more special, and that's a moment I'll keep close to my heart forever 🥹❤️"
   }
@@ -34,6 +36,30 @@ const memories = [
 
 function Memories() {
   const navigate = useNavigate();
+  const [photoUrls, setPhotoUrls] = useState({});
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadPhotos = async () => {
+      const results = await Promise.all(
+        memories.map(async (memory) => {
+          const url = await getPhotoUrl(memory.image);
+          return [memory.image, url];
+        })
+      );
+
+      if (!cancelled) {
+        setPhotoUrls(Object.fromEntries(results));
+      }
+    };
+
+    loadPhotos();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <main className="memories-page">
@@ -84,13 +110,12 @@ function Memories() {
               }}
             >
               <div className="memory-photo">
-                <img
-                  src={memory.image}
-                  alt={memory.caption}
-                  onError={(event) => {
-                    event.currentTarget.style.display = "none";
-                  }}
-                />
+                {photoUrls[memory.image] && (
+                  <img
+                    src={photoUrls[memory.image]}
+                    alt={memory.caption}
+                  />
+                )}
               </div>
 
               <h3>{memory.caption}</h3>

@@ -1,15 +1,35 @@
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, Gem } from "lucide-react";
+import { getPhotoUrl } from "../lib/photos";
 import "./Welcome.css";
 
 function Welcome() {
   const navigate = useNavigate();
+  const [profileUrl, setProfileUrl] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadProfilePhoto = async () => {
+      const url = await getPhotoUrl("sufiyan.jpg");
+
+      if (!cancelled && url) {
+        setProfileUrl(url);
+      }
+    };
+
+    loadProfilePhoto();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <main className="welcome-page">
-      {/* Floating Decorations */}
       <div className="welcome-decoration star-one">✦</div>
       <div className="welcome-decoration star-two">✧</div>
       <div className="welcome-decoration star-three">✦</div>
@@ -23,7 +43,6 @@ function Welcome() {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
-        {/* Heading */}
         <motion.h1
           className="welcome-heading"
           initial={{ opacity: 0, y: -20 }}
@@ -39,7 +58,6 @@ function Welcome() {
           To the man who makes my world beautiful
         </p>
 
-        {/* Profile Photo */}
         <motion.div
           className="profile-section"
           initial={{ opacity: 0, scale: 0.7 }}
@@ -48,26 +66,25 @@ function Welcome() {
         >
           <div className="photo-glow"></div>
 
-          <img
-            src={`${import.meta.env.BASE_URL}images/sufiyan.jpg`}
-            alt="Sufiyan"
-            className="profile-photo"
-          />
+          {profileUrl && (
+            <img
+              src={profileUrl}
+              alt="Sufiyan"
+              className="profile-photo"
+            />
+          )}
 
-          {/* Diamond Decoration */}
           <div className="diamond-decoration">
             <Gem size={43} strokeWidth={1.7} />
             <Sparkles className="diamond-sparkle" size={17} />
           </div>
         </motion.div>
 
-        {/* Best Man Badge */}
         <div className="best-man-badge">
           World's Best Man
           <span>🏅</span>
         </div>
 
-        {/* Description */}
         <motion.p
           className="welcome-description"
           initial={{ opacity: 0 }}
@@ -80,7 +97,6 @@ function Welcome() {
           <span className="description-heart"> ♡</span>
         </motion.p>
 
-        {/* Start Button */}
         <motion.button
           className="welcome-start-button"
           onClick={() => navigate("/balloons")}

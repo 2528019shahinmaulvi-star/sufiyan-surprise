@@ -10,23 +10,50 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabase";
+import { setPhotoAccessPassword } from "../lib/photos";
 import "./Password.css";
 
 function Password() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleUnlock = (e) => {
+  const handleUnlock = async (e) => {
     e.preventDefault();
 
-    if (password === "MoonMoon") {
+    setError("");
+    setLoading(true);
+
+    try {
+      const { data, error: functionError } =
+        await supabase.functions.invoke("unlock-surprise", {
+          body: {
+            action: "verify",
+            password,
+          },
+        });
+
+      if (functionError || !data?.success) {
+        setError(
+          data?.error ||
+            "Oops! That's not our special word. Try again, love. 💙"
+        );
+        return;
+      }
+
+      setPhotoAccessPassword(password);
       sessionStorage.setItem("surpriseUnlocked", "true");
+
       navigate("/welcome");
-    } else {
-      setError("Oops! That's not our special word. Try again, love. 💙");
+    } catch (err) {
+      console.error("Password verification failed:", err);
+      setError("Unable to connect. Please try again, love. 💙");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -111,8 +138,9 @@ function Password() {
             className="unlock-button"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
+            disabled={loading}
           >
-            Unlock My Surprise
+            {loading ? "Unlocking..." : "Unlock My Surprise"}
             <Heart size={18} fill="white" />
           </motion.button>
         </form>
